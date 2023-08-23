@@ -11,6 +11,7 @@ class Page1 extends StatefulWidget {
 class _Page1State extends State<Page1> {
   final TextEditingController _controller = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,10 +46,9 @@ class _Page1State extends State<Page1> {
                     },
                   ),
                 ),
-                //todo: call name routing here to page2 sending the name as a parameter
                 ElevatedButton(
                     onPressed: () => _formKey.currentState!.validate()
-                        ? print('Hello ${_controller.text}!')
+                        ? Get.toNamed('/page2/?name=${_controller.text}')
                         : null,
                     child: const Text('Continue'))
               ],
